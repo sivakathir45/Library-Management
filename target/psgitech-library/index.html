@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PSG iTech Library | Digital College Library & Resource Portal</title>
+    <meta name="description" content="Official Digital Library Resource and Queue Management System of PSG Institute of Technology and Applied Research (PSG iTech).">
+    <link rel="stylesheet" href="css/library-theme.css">
+</head>
+<body>
+
+    <!-- =====================================================================
+         Global Navigation Bar
+         ===================================================================== -->
+    <header class="navbar">
+        <div class="nav-container">
+            <!-- Left Branding -->
+            <a href="index.html" class="nav-left" id="navBrandLogo">
+                <svg class="logo-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+                    <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+                    <line x1="6" y1="6" x2="16" y2="6"></line>
+                    <line x1="6" y1="10" x2="14" y2="10"></line>
+                </svg>
+                <span class="brand-text">PSG iTECH LIBRARY</span>
+            </a>
+
+            <!-- Middle Navigation & Search -->
+            <div class="nav-middle">
+                <ul class="nav-menu">
+                    <li><a href="my-books.html" id="navMyBooksLink">My Books</a></li>
+                    <li><a href="browse.html" id="navBrowseLink">Browse</a></li>
+                </ul>
+                <form class="nav-search-form" id="navSearchForm">
+                    <select class="nav-search-select" id="navSearchType">
+                        <option value="all">All</option>
+                        <option value="title">Title</option>
+                        <option value="author">Author</option>
+                        <option value="isbn">ISBN</option>
+                    </select>
+                    <input type="text" class="nav-search-input" id="navSearchInput" placeholder="Search books, authors, ISBN..." autocomplete="off">
+                    <button type="submit" class="nav-search-btn" id="navSearchBtn" title="Search">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="11" cy="11" r="8"></circle>
+                            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                        </svg>
+                    </button>
+                </form>
+            </div>
+
+            <!-- Right Controls: Logged-Out vs Logged-In -->
+            <div class="nav-right">
+                <!-- Logged Out View -->
+                <div class="nav-actions" id="navLoggedOut">
+                    <a href="login.html" class="btn btn-secondary btn-sm" id="navLoginBtn">Log In</a>
+                    <a href="register.html" class="btn btn-primary btn-sm" id="navRegisterBtn">Sign Up</a>
+                </div>
+
+                <!-- Logged In View -->
+                <div class="nav-actions" id="navLoggedIn" style="display: none;">
+                    <button class="notification-bell" id="notificationBtn" title="Notifications">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
+                            <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
+                        </svg>
+                        <span class="notification-badge">2</span>
+                    </button>
+                    <div class="profile-dropdown">
+                        <button class="profile-trigger" id="profileTrigger">
+                            <span class="avatar-icon" id="navAvatar">U</span>
+                            <span id="navUsername" style="font-weight: bold;">User</span>
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="6 9 12 15 18 9"></polyline>
+                            </svg>
+                        </button>
+                        <div class="dropdown-menu" id="profileDropdownMenu">
+                            <div class="dropdown-header">PSG iTech Portal</div>
+                            <a href="student-home.html" class="dropdown-item" id="navDashboardLink">My Dashboard</a>
+                            <a href="profile.html" class="dropdown-item">My Profile</a>
+                            <a href="profile.html#change-password" class="dropdown-item">Change Password</a>
+                            <a href="my-books.html" class="dropdown-item">Borrowed Books</a>
+                            <div class="dropdown-divider"></div>
+                            <a href="logout" class="dropdown-item" data-action="logout" style="color: var(--danger);">Log Out</a>
+                        </div>
+                    </div>
+                </div>
+
+                <button class="nav-toggle" id="navToggle" title="Toggle Navigation">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="3" y1="12" x2="21" y2="12"></line>
+                        <line x1="3" y1="6" x2="21" y2="6"></line>
+                        <line x1="3" y1="18" x2="21" y2="18"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- =====================================================================
+         Section 1: Welcome Banner (Hero)
+         ===================================================================== -->
+    <section class="hero-section">
+        <div class="container hero-grid">
+            <div class="hero-content">
+                <h1 class="hero-title">Welcome to PsgItech Library</h1>
+                <p class="hero-desc">Explore your college library, discover books, and make your reading experience simpler.</p>
+
+                <form class="hero-search-box" id="heroSearchForm">
+                    <input type="text" class="hero-search-input" id="heroSearchInput" placeholder="Search by book title, author name, or ISBN..." autocomplete="off">
+                    <button type="submit" class="btn btn-primary hero-search-btn" id="heroSearchBtn">Search Catalog</button>
+                </form>
+
+                <div class="hero-quick-links">
+                    <span class="text-secondary">Popular Academic Searches:</span>
+                    <a href="browse.html?q=Data+Structures" style="text-decoration: underline;">Data Structures</a> &bull;
+                    <a href="browse.html?q=Machine+Learning" style="text-decoration: underline;">Machine Learning</a> &bull;
+                    <a href="browse.html?q=Networks" style="text-decoration: underline;">Networks</a>
+                </div>
+            </div>
+
+            <!-- Library Visual Graphic -->
+            <div class="hero-visual">
+                <div class="hero-card">
+                    <div class="hero-illustration">
+                        <svg width="68" height="68" viewBox="0 0 24 24" fill="none" stroke="#203B60" stroke-width="1.8" style="margin-bottom: 12px;">
+                            <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+                            <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+                            <line x1="12" y1="6" x2="12" y2="16"></line>
+                            <line x1="8" y1="11" x2="16" y2="11"></line>
+                        </svg>
+                        <h4 style="margin-bottom: 4px;">PSG Institute of Technology</h4>
+                        <p class="text-secondary" style="font-size: 0.92rem;">Central Academic Library & Resource Centre</p>
+                        <span class="badge badge-available" style="margin-top: 10px;">Open Today: 8:00 AM - 8:00 PM</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- =====================================================================
+         Section 2: Library Information Cards (3 Horizontal Cards)
+         ===================================================================== -->
+    <section class="info-section">
+        <div class="container">
+            <div class="info-cards-grid">
+                <!-- Card 1 -->
+                <div class="info-card">
+                    <div class="info-card-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="11" cy="11" r="8"></circle>
+                            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                        </svg>
+                    </div>
+                    <h3 class="info-card-title">Discover Library Books</h3>
+                    <p class="info-card-desc">Browse books available in the college library across all engineering disciplines and general reading collections.</p>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="info-card">
+                    <div class="info-card-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                            <line x1="16" y1="2" x2="16" y2="6"></line>
+                            <line x1="8" y1="2" x2="8" y2="6"></line>
+                            <line x1="3" y1="10" x2="21" y2="10"></line>
+                        </svg>
+                    </div>
+                    <h3 class="info-card-title">Manage Your Reading</h3>
+                    <p class="info-card-desc">Track your borrowed books, renewal deadlines, and return due dates conveniently with automated reminders.</p>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="info-card">
+                    <div class="info-card-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                            <circle cx="8.5" cy="7" r="4"></circle>
+                            <line x1="20" y1="8" x2="20" y2="14"></line>
+                            <line x1="23" y1="11" x2="17" y2="11"></line>
+                        </svg>
+                    </div>
+                    <h3 class="info-card-title">Reserve Your Next Book</h3>
+                    <p class="info-card-desc">Join reservation queues for in-demand texts and receive priority notifications as soon as books become available.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- =====================================================================
+         Section 3: Browse the Collections (Horizontal Scrolling)
+         ===================================================================== -->
+    <section class="categories-section">
+        <div class="container">
+            <div class="section-header">
+                <div>
+                    <h2>Browse the Collections</h2>
+                    <p class="text-secondary">Curated departmental textbooks, reference volumes, and literature</p>
+                </div>
+                <div style="display: flex; gap: 8px;">
+                    <button class="btn btn-secondary btn-sm" data-scroll-target="categoryScroll" data-scroll-dir="left" title="Scroll Left">&larr;</button>
+                    <button class="btn btn-secondary btn-sm" data-scroll-target="categoryScroll" data-scroll-dir="right" title="Scroll Right">&rarr;</button>
+                </div>
+            </div>
+
+            <div class="categories-scroll" id="categoryScroll">
+                <a href="browse.html?category=Computer+Science" class="category-card">
+                    <svg class="category-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                        <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                        <line x1="8" y1="21" x2="16" y2="21"></line>
+                        <line x1="12" y1="17" x2="12" y2="21"></line>
+                    </svg>
+                    <span class="category-name">Computer Science</span>
+                </a>
+
+                <a href="browse.html?category=Programming" class="category-card">
+                    <svg class="category-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                        <polyline points="16 18 22 12 16 6"></polyline>
+                        <polyline points="8 6 2 12 8 18"></polyline>
+                    </svg>
+                    <span class="category-name">Programming</span>
+                </a>
+
+                <a href="browse.html?category=Data+Structures" class="category-card">
+                    <svg class="category-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                        <rect x="3" y="3" width="7" height="7"></rect>
+                        <rect x="14" y="3" width="7" height="7"></rect>
+                        <rect x="14" y="14" width="7" height="7"></rect>
+                        <rect x="3" y="14" width="7" height="7"></rect>
+                    </svg>
+                    <span class="category-name">Data Structures</span>
+                </a>
+
+                <a href="browse.html?category=Artificial+Intelligence" class="category-card">
+                    <svg class="category-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                        <path d="M12 2a4 4 0 0 1 4 4v1a4 4 0 0 1-8 0V6a4 4 0 0 1 4-4z"></path>
+                        <path d="M16 16v1a2 2 0 0 1-2 2h-4a2 2 0 0 1-2-2v-1"></path>
+                        <line x1="12" y1="11" x2="12" y2="15"></line>
+                    </svg>
+                    <span class="category-name">Artificial Intelligence</span>
+                </a>
+
+                <a href="browse.html?category=Mathematics" class="category-card">
+                    <svg class="category-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                        <line x1="18" y1="6" x2="6" y2="18"></line>
+                        <line x1="6" y1="6" x2="18" y2="18"></line>
+                    </svg>
+                    <span class="category-name">Mathematics</span>
+                </a>
+
+                <a href="browse.html?category=Electronics" class="category-card">
+                    <svg class="category-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                        <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+                    </svg>
+                    <span class="category-name">Electronics</span>
+                </a>
+
+                <a href="browse.html?category=General+Knowledge" class="category-card">
+                    <svg class="category-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <line x1="12" y1="16" x2="12" y2="12"></line>
+                        <line x1="12" y1="8" x2="12.01" y2="8"></line>
+                    </svg>
+                    <span class="category-name">General Knowledge</span>
+                </a>
+
+                <a href="browse.html?category=Fiction" class="category-card">
+                    <svg class="category-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                        <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
+                        <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
+                    </svg>
+                    <span class="category-name">Fiction & Literature</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- =====================================================================
+         Section 4: Featured Books (Warm Off-White Section #F8F6F0)
+         ===================================================================== -->
+    <section class="featured-books-section">
+        <div class="container">
+            <div style="margin-bottom: 30px;">
+                <h2>Featured Library Collections</h2>
+                <p class="text-secondary">Official curriculum books and highest circulated titles across engineering departments</p>
+            </div>
+
+            <!-- Shelf 1: Trending Books -->
+            <div class="book-shelf">
+                <div class="shelf-title">
+                    <h3>Trending Books</h3>
+                    <div style="display: flex; gap: 6px;">
+                        <button class="btn btn-secondary btn-sm" data-scroll-target="shelfTrending" data-scroll-dir="left">&larr;</button>
+                        <button class="btn btn-secondary btn-sm" data-scroll-target="shelfTrending" data-scroll-dir="right">&rarr;</button>
+                    </div>
+                </div>
+                <div class="books-scroll-row" id="shelfTrending">
+                    <!-- Book 1 -->
+                    <div class="book-card">
+                        <div class="book-cover-container">
+                            <div class="book-cover-mock" style="background: linear-gradient(135deg, #203B60 0%, #102540 100%);">
+                                <span class="mock-dept">Core CS</span>
+                                <span class="mock-title">Introduction to Algorithms</span>
+                                <span class="mock-author">T. Cormen, C. Leiserson</span>
+                            </div>
+                        </div>
+                        <div class="book-info">
+                            <div class="book-title" title="Introduction to Algorithms (4th Ed)">Introduction to Algorithms</div>
+                            <div class="author-name">Thomas H. Cormen</div>
+                            <div class="book-meta">
+                                <span class="badge badge-available">Available (6)</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Book 2 -->
+                    <div class="book-card">
+                        <div class="book-cover-container">
+                            <div class="book-cover-mock" style="background: linear-gradient(135deg, #1B4D3E 0%, #0F2D24 100%);">
+                                <span class="mock-dept">Software Eng</span>
+                                <span class="mock-title">Clean Code: Agile Craftsmanship</span>
+                                <span class="mock-author">Robert C. Martin</span>
+                            </div>
+                        </div>
+                        <div class="book-info">
+                            <div class="book-title" title="Clean Code: A Handbook of Agile Software Craftsmanship">Clean Code</div>
+                            <div class="author-name">Robert C. Martin</div>
+                            <div class="book-meta">
+                                <span class="badge badge-borrowed">Borrowed (Queue 2)</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Book 3 -->
+                    <div class="book-card">
+                        <div class="book-cover-container">
+                            <div class="book-cover-mock" style="background: linear-gradient(135deg, #5C2751 0%, #35142E 100%);">
+                                <span class="mock-dept">AI & DS</span>
+                                <span class="mock-title">Artificial Intelligence: Modern Approach</span>
+                                <span class="mock-author">S. Russell, P. Norvig</span>
+                            </div>
+                        </div>
+                        <div class="book-info">
+                            <div class="book-title" title="Artificial Intelligence: A Modern Approach">Artificial Intelligence</div>
+                            <div class="author-name">Stuart Russell</div>
+                            <div class="book-meta">
+                                <span class="badge badge-available">Available (4)</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Book 4 -->
+                    <div class="book-card">
+                        <div class="book-cover-container">
+                            <div class="book-cover-mock" style="background: linear-gradient(135deg, #8B3A2B 0%, #541F16 100%);">
+                                <span class="mock-dept">Networking</span>
+                                <span class="mock-title">Computer Networks</span>
+                                <span class="mock-author">Andrew S. Tanenbaum</span>
+                            </div>
+                        </div>
+                        <div class="book-info">
+                            <div class="book-title" title="Computer Networks (6th Edition)">Computer Networks</div>
+                            <div class="author-name">Andrew S. Tanenbaum</div>
+                            <div class="book-meta">
+                                <span class="badge badge-available">Available (5)</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Book 5 -->
+                    <div class="book-card">
+                        <div class="book-cover-container">
+                            <div class="book-cover-mock" style="background: linear-gradient(135deg, #344F70 0%, #1A2838 100%);">
+                                <span class="mock-dept">Systems</span>
+                                <span class="mock-title">Operating System Concepts</span>
+                                <span class="mock-author">Silberschatz, Galvin</span>
+                            </div>
+                        </div>
+                        <div class="book-info">
+                            <div class="book-title" title="Operating System Concepts (10th Ed)">Operating System Concepts</div>
+                            <div class="author-name">Abraham Silberschatz</div>
+                            <div class="book-meta">
+                                <span class="badge badge-borrowed">Borrowed</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Book 6 -->
+                    <div class="book-card">
+                        <div class="book-cover-container">
+                            <div class="book-cover-mock" style="background: linear-gradient(135deg, #2D5F5D 0%, #153332 100%);">
+                                <span class="mock-dept">Architecture</span>
+                                <span class="mock-title">Computer Organization & Design</span>
+                                <span class="mock-author">Patterson & Hennessy</span>
+                            </div>
+                        </div>
+                        <div class="book-info">
+                            <div class="book-title" title="Computer Organization and Design">Computer Organization</div>
+                            <div class="author-name">David A. Patterson</div>
+                            <div class="book-meta">
+                                <span class="badge badge-available">Available (3)</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Shelf 2: Recently Added -->
+            <div class="book-shelf">
+                <div class="shelf-title">
+                    <h3>Recently Added</h3>
+                    <div style="display: flex; gap: 6px;">
+                        <button class="btn btn-secondary btn-sm" data-scroll-target="shelfRecent" data-scroll-dir="left">&larr;</button>
+                        <button class="btn btn-secondary btn-sm" data-scroll-target="shelfRecent" data-scroll-dir="right">&rarr;</button>
+                    </div>
+                </div>
+                <div class="books-scroll-row" id="shelfRecent">
+                    <!-- Book R1 -->
+                    <div class="book-card">
+                        <div class="book-cover-container">
+                            <div class="book-cover-mock" style="background: linear-gradient(135deg, #4A3E3D 0%, #291F1E 100%);">
+                                <span class="mock-dept">Database</span>
+                                <span class="mock-title">Database System Concepts</span>
+                                <span class="mock-author">Silberschatz, Korth</span>
+                            </div>
+                        </div>
+                        <div class="book-info">
+                            <div class="book-title">Database System Concepts</div>
+                            <div class="author-name">Henry F. Korth</div>
+                            <div class="book-meta">
+                                <span class="badge badge-available">Available (8)</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Book R2 -->
+                    <div class="book-card">
+                        <div class="book-cover-container">
+                            <div class="book-cover-mock" style="background: linear-gradient(135deg, #203B60 0%, #2A5288 100%);">
+                                <span class="mock-dept">OOP</span>
+                                <span class="mock-title">Design Patterns: Elements</span>
+                                <span class="mock-author">Gang of Four</span>
+                            </div>
+                        </div>
+                        <div class="book-info">
+                            <div class="book-title">Design Patterns (GoF)</div>
+                            <div class="author-name">Erich Gamma et al.</div>
+                            <div class="book-meta">
+                                <span class="badge badge-available">Available (4)</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Book R3 -->
+                    <div class="book-card">
+                        <div class="book-cover-container">
+                            <div class="book-cover-mock" style="background: linear-gradient(135deg, #6B4C1B 0%, #3D290B 100%);">
+                                <span class="mock-dept">Electronics</span>
+                                <span class="mock-title">Digital Design: Principles</span>
+                                <span class="mock-author">M. Morris Mano</span>
+                            </div>
+                        </div>
+                        <div class="book-info">
+                            <div class="book-title">Digital Design</div>
+                            <div class="author-name">M. Morris Mano</div>
+                            <div class="book-meta">
+                                <span class="badge badge-available">Available (6)</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Book R4 -->
+                    <div class="book-card">
+                        <div class="book-cover-container">
+                            <div class="book-cover-mock" style="background: linear-gradient(135deg, #1E3F66 0%, #0D2138 100%);">
+                                <span class="mock-dept">Mathematics</span>
+                                <span class="mock-title">Higher Engineering Mathematics</span>
+                                <span class="mock-author">Dr. B.S. Grewal</span>
+                            </div>
+                        </div>
+                        <div class="book-info">
+                            <div class="book-title">Higher Engineering Mathematics</div>
+                            <div class="author-name">Dr. B.S. Grewal</div>
+                            <div class="book-meta">
+                                <span class="badge badge-available">Available (12)</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Book R5 -->
+                    <div class="book-card">
+                        <div class="book-cover-container">
+                            <div class="book-cover-mock" style="background: linear-gradient(135deg, #3D5A80 0%, #1A2E44 100%);">
+                                <span class="mock-dept">Data Science</span>
+                                <span class="mock-title">Python for Data Analysis</span>
+                                <span class="mock-author">Wes McKinney</span>
+                            </div>
+                        </div>
+                        <div class="book-info">
+                            <div class="book-title">Python for Data Analysis</div>
+                            <div class="author-name">Wes McKinney</div>
+                            <div class="book-meta">
+                                <span class="badge badge-available">Available (5)</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Shelf 3: Recommended for Students -->
+            <div class="book-shelf">
+                <div class="shelf-title">
+                    <h3>Recommended for Students</h3>
+                    <div style="display: flex; gap: 6px;">
+                        <button class="btn btn-secondary btn-sm" data-scroll-target="shelfRec" data-scroll-dir="left">&larr;</button>
+                        <button class="btn btn-secondary btn-sm" data-scroll-target="shelfRec" data-scroll-dir="right">&rarr;</button>
+                    </div>
+                </div>
+                <div class="books-scroll-row" id="shelfRec">
+                    <!-- Book Rec 1 -->
+                    <div class="book-card">
+                        <div class="book-cover-container">
+                            <div class="book-cover-mock" style="background: linear-gradient(135deg, #2E4057 0%, #141C26 100%);">
+                                <span class="mock-dept">Theory</span>
+                                <span class="mock-title">Introduction to Theory of Computation</span>
+                                <span class="mock-author">Michael Sipser</span>
+                            </div>
+                        </div>
+                        <div class="book-info">
+                            <div class="book-title">Theory of Computation</div>
+                            <div class="author-name">Michael Sipser</div>
+                            <div class="book-meta">
+                                <span class="badge badge-available">Available (3)</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Book Rec 2 -->
+                    <div class="book-card">
+                        <div class="book-cover-container">
+                            <div class="book-cover-mock" style="background: linear-gradient(135deg, #4F5D75 0%, #2D3142 100%);">
+                                <span class="mock-dept">Compiler</span>
+                                <span class="mock-title">Compilers: Principles, Tools</span>
+                                <span class="mock-author">Aho, Lam, Sethi, Ullman</span>
+                            </div>
+                        </div>
+                        <div class="book-info">
+                            <div class="book-title">Compilers: Principles & Tools</div>
+                            <div class="author-name">Alfred V. Aho</div>
+                            <div class="book-meta">
+                                <span class="badge badge-available">Available (4)</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Book Rec 3 -->
+                    <div class="book-card">
+                        <div class="book-cover-container">
+                            <div class="book-cover-mock" style="background: linear-gradient(135deg, #1D3557 0%, #0F1D30 100%);">
+                                <span class="mock-dept">Signals</span>
+                                <span class="mock-title">Signals and Systems</span>
+                                <span class="mock-author">Oppenheim & Willsky</span>
+                            </div>
+                        </div>
+                        <div class="book-info">
+                            <div class="book-title">Signals and Systems</div>
+                            <div class="author-name">Alan V. Oppenheim</div>
+                            <div class="book-meta">
+                                <span class="badge badge-available">Available (6)</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Book Rec 4 -->
+                    <div class="book-card">
+                        <div class="book-cover-container">
+                            <div class="book-cover-mock" style="background: linear-gradient(135deg, #3A506B 0%, #1C2541 100%);">
+                                <span class="mock-dept">Programming</span>
+                                <span class="mock-title">Effective Java (3rd Edition)</span>
+                                <span class="mock-author">Joshua Bloch</span>
+                            </div>
+                        </div>
+                        <div class="book-info">
+                            <div class="book-title">Effective Java</div>
+                            <div class="author-name">Joshua Bloch</div>
+                            <div class="book-meta">
+                                <span class="badge badge-available">Available (7)</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- =====================================================================
+         Footer
+         ===================================================================== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4 style="color: #203B60;">PSG Institute of Technology and Applied Research</h4>
+                    <p class="text-secondary">Avinashi Road, Neelambur, Coimbatore, Tamil Nadu 641062.</p>
+                    <p class="text-secondary" style="margin-top: 8px;">Central Library & Academic Resource Management System.</p>
+                </div>
+                <div class="footer-col">
+                    <h4 style="color: #203B60;">Quick Access</h4>
+                    <ul class="footer-links">
+                        <li><a href="browse.html">Browse Book Catalog</a></li>
+                        <li><a href="my-books.html">My Borrowed Books</a></li>
+                        <li><a href="login.html">Student / Staff Login</a></li>
+                        <li><a href="register.html">New Student Registration</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4 style="color: #203B60;">Library Hours</h4>
+                    <p class="text-secondary">Monday &ndash; Saturday: 8:00 AM &ndash; 8:00 PM</p>
+                    <p class="text-secondary">Sunday: 9:00 AM &ndash; 1:00 PM</p>
+                    <p class="text-secondary" style="margin-top: 8px;">Email: library@psgitech.ac.in</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 PSG iTech Library System. All academic rights reserved. Strict Times New Roman & Navy Theme Applied.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/books.js"></script>
+</body>
+</html>

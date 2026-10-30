@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Portal | PSG iTech Library</title>
+    <link rel="stylesheet" href="css/library-theme.css">
+</head>
+<body>
+
+    <!-- Global Navigation -->
+    <header class="navbar">
+        <div class="nav-container">
+            <a href="student-home.html" class="nav-left">
+                <svg class="logo-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+                    <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+                </svg>
+                <span class="brand-text">PSG iTECH LIBRARY</span>
+            </a>
+
+            <div class="nav-middle">
+                <ul class="nav-menu">
+                    <li><a href="my-books.html">My Books</a></li>
+                    <li><a href="browse.html">Browse</a></li>
+                </ul>
+                <form class="nav-search-form" id="navSearchForm">
+                    <select class="nav-search-select" id="navSearchType">
+                        <option value="all">All</option>
+                        <option value="title">Title</option>
+                        <option value="author">Author</option>
+                        <option value="isbn">ISBN</option>
+                    </select>
+                    <input type="text" class="nav-search-input" id="navSearchInput" placeholder="Search books, authors, ISBN...">
+                    <button type="submit" class="nav-search-btn">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="11" cy="11" r="8"></circle>
+                            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                        </svg>
+                    </button>
+                </form>
+            </div>
+
+            <div class="nav-right">
+                <button class="notification-bell" title="Notifications">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
+                        <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
+                    </svg>
+                    <span class="notification-badge">1</span>
+                </button>
+                <div class="profile-dropdown">
+                    <button class="profile-trigger" id="profileTrigger">
+                        <span class="avatar-icon" id="studentAvatar">S</span>
+                        <span id="studentNavName" style="font-weight: bold;">Sivakathir S</span>
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="6 9 12 15 18 9"></polyline>
+                        </svg>
+                    </button>
+                    <div class="dropdown-menu" id="profileDropdownMenu">
+                        <div class="dropdown-header">Student Account</div>
+                        <a href="profile.html" class="dropdown-item">My Profile</a>
+                        <a href="profile.html#change-password" class="dropdown-item">Change Password</a>
+                        <a href="my-books.html" class="dropdown-item">My Borrowed Books</a>
+                        <div class="dropdown-divider"></div>
+                        <a href="logout" class="dropdown-item" data-action="logout" style="color: var(--danger);">Log Out</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <div class="container" style="margin-top: 32px;">
+            <!-- Welcome Header -->
+            <div style="border-bottom: 1px solid var(--border); padding-bottom: 16px; margin-bottom: 24px;">
+                <h1 style="font-size: 2.1rem; margin-bottom: 4px;">Welcome back, <span id="studentWelcomeName">Sivakathir S</span></h1>
+                <p class="text-secondary">PSG iTech Department of Computer Science and Engineering &bull; 3rd Year</p>
+            </div>
+
+            <!-- Compact Library Activity Section -->
+            <section class="student-activity-banner">
+                <h3 style="font-size: 1.25rem;">Your Library Activity</h3>
+                <div class="activity-indicators-row">
+                    <div class="activity-indicator">
+                        <div class="indicator-number">0</div>
+                        <div>
+                            <div class="indicator-label" style="font-weight: bold;">Currently Borrowed</div>
+                            <div class="text-secondary" style="font-size: 0.85rem;">Active issues from library desk</div>
+                        </div>
+                    </div>
+                    <div class="activity-indicator">
+                        <div class="indicator-number">0</div>
+                        <div>
+                            <div class="indicator-label" style="font-weight: bold;">Pending Reservations</div>
+                            <div class="text-secondary" style="font-size: 0.85rem;">Queued titles awaiting return</div>
+                        </div>
+                    </div>
+                    <div class="activity-indicator">
+                        <div class="indicator-number" style="color: var(--success) !important;">0</div>
+                        <div>
+                            <div class="indicator-label" style="font-weight: bold;">Due Soon</div>
+                            <div class="text-secondary" style="font-size: 0.85rem;">Books due in next 48 hours</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Your Current Books Section -->
+            <section style="margin: 36px 0;">
+                <div class="section-header">
+                    <h2>Your Current Books</h2>
+                    <a href="browse.html" class="btn btn-secondary btn-sm">Explore Catalog</a>
+                </div>
+
+                <!-- Clean Empty State per Section 5 -->
+                <div class="empty-state">
+                    <svg class="empty-state-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                        <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+                        <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+                    </svg>
+                    <h3 class="empty-state-title">No Borrowed Books Found</h3>
+                    <p class="empty-state-desc">You haven't borrowed any books yet. Explore the library catalog and find your next book.</p>
+                    <a href="browse.html" class="btn btn-primary btn-sm">Browse College Catalog</a>
+                </div>
+            </section>
+
+            <!-- Browse Collections -->
+            <section class="categories-section" style="border: none; padding-top: 10px;">
+                <div class="section-header">
+                    <h3>Browse Collections</h3>
+                    <div style="display: flex; gap: 6px;">
+                        <button class="btn btn-secondary btn-sm" data-scroll-target="studentCategoryScroll" data-scroll-dir="left">&larr;</button>
+                        <button class="btn btn-secondary btn-sm" data-scroll-target="studentCategoryScroll" data-scroll-dir="right">&rarr;</button>
+                    </div>
+                </div>
+                <div class="categories-scroll" id="studentCategoryScroll">
+                    <a href="browse.html?category=Computer+Science" class="category-card">
+                        <span class="category-name">Computer Science</span>
+                    </a>
+                    <a href="browse.html?category=Programming" class="category-card">
+                        <span class="category-name">Programming</span>
+                    </a>
+                    <a href="browse.html?category=Data+Structures" class="category-card">
+                        <span class="category-name">Data Structures</span>
+                    </a>
+                    <a href="browse.html?category=Artificial+Intelligence" class="category-card">
+                        <span class="category-name">Artificial Intelligence</span>
+                    </a>
+                    <a href="browse.html?category=Mathematics" class="category-card">
+                        <span class="category-name">Mathematics</span>
+                    </a>
+                    <a href="browse.html?category=Electronics" class="category-card">
+                        <span class="category-name">Electronics</span>
+                    </a>
+                    <a href="browse.html?category=General+Knowledge" class="category-card">
+                        <span class="category-name">General Knowledge</span>
+                    </a>
+                    <a href="browse.html?category=Fiction" class="category-card">
+                        <span class="category-name">Fiction</span>
+                    </a>
+                </div>
+            </section>
+
+            <!-- Trending and Recommended Books -->
+            <section class="featured-books-section" style="background: transparent; border-bottom: none; padding-bottom: 0;">
+                <div class="book-shelf">
+                    <div class="shelf-title">
+                        <h3>Trending Across Campus</h3>
+                    </div>
+                    <div class="books-scroll-row" id="studentTrending">
+                        <div class="book-card">
+                            <div class="book-cover-container">
+                                <div class="book-cover-mock" style="background: linear-gradient(135deg, #203B60 0%, #102540 100%);">
+                                    <span class="mock-dept">Core CS</span>
+                                    <span class="mock-title">Introduction to Algorithms</span>
+                                    <span class="mock-author">T. Cormen</span>
+                                </div>
+                            </div>
+                            <div class="book-info">
+                                <div class="book-title">Introduction to Algorithms</div>
+                                <div class="author-name">Thomas H. Cormen</div>
+                                <div class="book-meta">
+                                    <span class="badge badge-available">Available (6)</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="book-card">
+                            <div class="book-cover-container">
+                                <div class="book-cover-mock" style="background: linear-gradient(135deg, #1B4D3E 0%, #0F2D24 100%);">
+                                    <span class="mock-dept">Software Eng</span>
+                                    <span class="mock-title">Clean Code</span>
+                                    <span class="mock-author">Robert C. Martin</span>
+                                </div>
+                            </div>
+                            <div class="book-info">
+                                <div class="book-title">Clean Code</div>
+                                <div class="author-name">Robert C. Martin</div>
+                                <div class="book-meta">
+                                    <span class="badge badge-borrowed">Borrowed</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="book-card">
+                            <div class="book-cover-container">
+                                <div class="book-cover-mock" style="background: linear-gradient(135deg, #5C2751 0%, #35142E 100%);">
+                                    <span class="mock-dept">AI & DS</span>
+                                    <span class="mock-title">Artificial Intelligence</span>
+                                    <span class="mock-author">S. Russell</span>
+                                </div>
+                            </div>
+                            <div class="book-info">
+                                <div class="book-title">Artificial Intelligence</div>
+                                <div class="author-name">Stuart Russell</div>
+                                <div class="book-meta">
+                                    <span class="badge badge-available">Available (4)</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container text-secondary" style="text-align: center; font-size: 0.9rem;">
+            <p>&copy; 2026 PSG Institute of Technology and Applied Research &bull; Library Management Portal</p>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/books.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Populate student name from session or remembered storage
+            const cached = sessionStorage.getItem('psgitech_user') || localStorage.getItem('psgitech_user');
+            if (cached) {
+                try {
+                    const user = JSON.parse(cached);
+                    if (user && user.name) {
+                        const welcomeEl = document.getElementById('studentWelcomeName');
+                        if (welcomeEl) welcomeEl.textContent = user.name;
+                        const navNameEl = document.getElementById('studentNavName');
+                        if (navNameEl) navNameEl.textContent = user.name;
+                        const avatarEl = document.getElementById('studentAvatar');
+                        if (avatarEl) avatarEl.textContent = user.name.charAt(0).toUpperCase();
+                    }
+                } catch (e) {}
+            }
+        });
+    </script>
+</body>
+</html>

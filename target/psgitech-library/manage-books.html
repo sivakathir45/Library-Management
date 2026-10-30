@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Management Workspace | PSG iTech Library</title>
+    <link rel="stylesheet" href="css/library-theme.css">
+</head>
+<body>
+
+    <!-- Global Navigation -->
+    <header class="navbar">
+        <div class="nav-container">
+            <a href="librarian-dashboard.html" class="nav-left">
+                <svg class="logo-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+                    <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+                </svg>
+                <span class="brand-text">PSG iTECH LIBRARY &bull; BOOK DESK</span>
+            </a>
+
+            <div class="nav-middle">
+                <ul class="nav-menu">
+                    <li><a href="librarian-dashboard.html">Dashboard</a></li>
+                    <li><a href="manage-books.html" class="active">Manage Books</a></li>
+                    <li><a href="admin-users.html">User Directory</a></li>
+                    <li><a href="browse.html">Catalog View</a></li>
+                </ul>
+            </div>
+
+            <div class="nav-right">
+                <span class="badge badge-available">STAFF PORTAL</span>
+                <div class="profile-dropdown">
+                    <button class="profile-trigger" id="profileTrigger">
+                        <span class="avatar-icon" id="navAvatar">L</span>
+                        <span id="navUsername">Staff Desk</span>
+                    </button>
+                    <div class="dropdown-menu" id="profileDropdownMenu">
+                        <a href="profile.html" class="dropdown-item">My Profile</a>
+                        <a href="browse.html" class="dropdown-item">Public Catalog</a>
+                        <div class="dropdown-divider"></div>
+                        <a href="logout" class="dropdown-item" data-action="logout" style="color: var(--danger);">Log Out</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <div class="container" style="margin-top: 32px;">
+
+            <!-- Header with Primary Action -->
+            <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border); padding-bottom: 16px; margin-bottom: 24px; flex-wrap: wrap; gap: 16px;">
+                <div>
+                    <h1 style="margin-bottom: 4px;">Book &amp; Physical Copy Management</h1>
+                    <p class="text-secondary">Register new titles, accession physical shelf copies, and manage collection lifecycle</p>
+                </div>
+                <div>
+                    <button class="btn btn-primary" onclick="openAddBookModal()">+ Add New Book</button>
+                </div>
+            </div>
+
+            <!-- Toolbar: Search & Statistics -->
+            <div class="admin-toolbar">
+                <div class="filter-group">
+                    <div style="flex: 1; min-width: 280px;">
+                        <input type="text" id="manageSearchInput" class="form-control" placeholder="Search by title, author, or ISBN...">
+                    </div>
+                </div>
+                <div>
+                    <span id="manageBooksCountBadge" class="badge badge-role">Loading Catalog...</span>
+                </div>
+            </div>
+
+            <!-- Books Table -->
+            <div class="table-responsive">
+                <table class="library-table">
+                    <thead>
+                        <tr>
+                            <th style="width: 70px;">ID</th>
+                            <th>Title &amp; Author</th>
+                            <th>ISBN</th>
+                            <th>Category &amp; Department</th>
+                            <th>Available / Total Active</th>
+                            <th>Status</th>
+                            <th style="text-align: right; width: 220px;">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="manageBooksTableBody">
+                        <!-- Populated by books.js -->
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Modal 1: Add New Book -->
+    <div class="modal-overlay" id="addBookModal">
+        <div class="modal-container" style="max-width: 680px;">
+            <div class="modal-header">
+                <h3 class="modal-title" style="margin: 0;">Add New Book to Collection</h3>
+                <button class="modal-close" onclick="closeModal('addBookModal')">&times;</button>
+            </div>
+            <form id="addBookForm">
+                <div class="modal-body">
+                    <div id="addBookAlert" class="alert" style="display: none;"></div>
+
+                    <div class="form-group">
+                        <label for="newTitle" class="form-label">Book Title *</label>
+                        <input type="text" id="newTitle" name="title" class="form-control" placeholder="e.g. Design Patterns: Elements of Reusable Object-Oriented Software" required>
+                    </div>
+
+                    <div class="form-group row-2">
+                        <div>
+                            <label for="newAuthor" class="form-label">Author(s) *</label>
+                            <input type="text" id="newAuthor" name="author" class="form-control" placeholder="e.g. Erich Gamma, Richard Helm" required>
+                        </div>
+                        <div>
+                            <label for="newIsbn" class="form-label">ISBN-10 or ISBN-13 *</label>
+                            <input type="text" id="newIsbn" name="isbn" class="form-control" placeholder="e.g. 978-0201633610" required>
+                            <small class="helper-text">Must be a unique ISBN.</small>
+                        </div>
+                    </div>
+
+                    <div class="form-group row-2">
+                        <div>
+                            <label for="newPublisher" class="form-label">Publisher *</label>
+                            <input type="text" id="newPublisher" name="publisher" class="form-control" placeholder="e.g. Addison-Wesley" required>
+                        </div>
+                        <div>
+                            <label for="newEdition" class="form-label">Edition</label>
+                            <input type="text" id="newEdition" name="edition" class="form-control" placeholder="e.g. 1st Edition">
+                        </div>
+                    </div>
+
+                    <div class="form-group row-3">
+                        <div>
+                            <label for="newYear" class="form-label">Publication Year *</label>
+                            <input type="number" id="newYear" name="publicationYear" class="form-control" placeholder="e.g. 2021" min="1000" max="2026" required>
+                        </div>
+                        <div>
+                            <label for="newCategory" class="form-label">Category *</label>
+                            <select id="newCategory" name="category" class="form-control" required>
+                                <option value="" disabled selected>Select Category</option>
+                                <option value="Computer Science">Computer Science</option>
+                                <option value="Programming">Programming</option>
+                                <option value="Data Structures">Data Structures</option>
+                                <option value="Artificial Intelligence">Artificial Intelligence</option>
+                                <option value="Mathematics">Mathematics</option>
+                                <option value="Electronics">Electronics</option>
+                                <option value="General Knowledge">General Knowledge</option>
+                                <option value="Fiction">Fiction</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="newDepartment" class="form-label">Department *</label>
+                            <select id="newDepartment" name="department" class="form-control" required>
+                                <option value="" disabled selected>Select Department</option>
+                                <option value="CSE">CSE</option>
+                                <option value="IT">IT</option>
+                                <option value="ECE">ECE</option>
+                                <option value="EEE">EEE</option>
+                                <option value="MECH">MECH</option>
+                                <option value="AI&DS">AI&DS</option>
+                                <option value="CIVIL">CIVIL</option>
+                                <option value="GENERAL">GENERAL</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group row-2">
+                        <div>
+                            <label for="newInitialCopies" class="form-label">Initial Physical Copies *</label>
+                            <input type="number" id="newInitialCopies" name="initialCopies" class="form-control" min="1" max="50" value="2" required>
+                            <small class="helper-text">Generated transactionally as AVAILABLE copies.</small>
+                        </div>
+                        <div>
+                            <label for="newCoverUrl" class="form-label">Cover Image URL (Optional)</label>
+                            <input type="url" id="newCoverUrl" name="coverImageUrl" class="form-control" placeholder="Leave blank to use Open Library covers">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="newDescription" class="form-label">Description / Abstract</label>
+                        <textarea id="newDescription" name="description" class="form-control" rows="2" placeholder="Brief outline of syllabus relevance and topics covered..."></textarea>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary btn-sm" onclick="closeModal('addBookModal')">Cancel</button>
+                    <button type="submit" class="btn btn-primary btn-sm">Add Book &amp; Physical Copies</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal 2: Add Copies to Existing Book -->
+    <div class="modal-overlay" id="addCopiesModal">
+        <div class="modal-container">
+            <div class="modal-header">
+                <h3 class="modal-title" style="margin: 0;">Add Physical Book Copies</h3>
+                <button class="modal-close" onclick="closeModal('addCopiesModal')">&times;</button>
+            </div>
+            <form id="addCopiesForm">
+                <div class="modal-body">
+                    <div id="addCopiesAlert" class="alert" style="display: none;"></div>
+                    <input type="hidden" id="addCopiesBookId" name="bookId">
+
+                    <div class="form-group">
+                        <label for="addCopiesCount" class="form-label">Number of Physical Copies to Add *</label>
+                        <input type="number" id="addCopiesCount" name="numberOfCopies" class="form-control" min="1" max="50" value="1" required>
+                        <small class="helper-text">Unique copy codes (PSG-BK{id}-C{num}) will be generated and set to AVAILABLE.</small>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary btn-sm" onclick="closeModal('addCopiesModal')">Cancel</button>
+                    <button type="submit" class="btn btn-primary btn-sm">Generate Physical Copies</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container text-secondary" style="text-align: center; font-size: 0.9rem;">
+            <p>&copy; 2026 PSG Institute of Technology and Applied Research &bull; Central Library Resource System</p>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/books.js"></script>
+    <script>
+        function openAddBookModal() {
+            const modal = document.getElementById('addBookModal');
+            if (modal) modal.classList.add('show');
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,490 @@
+{
+  "books": [
+    {
+      "bookId": 1,
+      "isbn": "978-0262033848",
+      "title": "Introduction to Algorithms",
+      "author": "Thomas H. Cormen, Charles E. Leiserson, Ronald L. Rivest, Clifford Stein",
+      "publisher": "MIT Press",
+      "edition": "4th Edition",
+      "publicationYear": 2022,
+      "category": "Data Structures",
+      "department": "CSE",
+      "description": "The definitive modern algorithms textbook covering asymptotic analysis, sorting, dynamic programming, greedy algorithms, and graph theory.",
+      "coverImageUrl": "https://covers.openlibrary.org/b/isbn/9780262033848-L.jpg",
+      "archived": false,
+      "createdAt": "2026-01-01 00:00:00"
+    },
+    {
+      "bookId": 2,
+      "isbn": "978-0132350884",
+      "title": "Clean Code: A Handbook of Agile Software Craftsmanship",
+      "author": "Robert C. Martin",
+      "publisher": "Prentice Hall",
+      "edition": "1st Edition",
+      "publicationYear": 2008,
+      "category": "Programming",
+      "department": "CSE",
+      "description": "Best practices and clean architecture patterns for writing robust, maintainable, and readable software systems.",
+      "coverImageUrl": "https://covers.openlibrary.org/b/isbn/9780132350884-L.jpg",
+      "archived": false,
+      "createdAt": "2026-01-02 00:00:00"
+    },
+    {
+      "bookId": 3,
+      "isbn": "978-0136042594",
+      "title": "Artificial Intelligence: A Modern Approach",
+      "author": "Stuart Russell, Peter Norvig",
+      "publisher": "Pearson",
+      "edition": "4th Edition",
+      "publicationYear": 2020,
+      "category": "Artificial Intelligence",
+      "department": "AI&DS",
+      "description": "Comprehensive university reference on search algorithms, probabilistic reasoning, machine learning, and natural language processing.",
+      "coverImageUrl": "https://covers.openlibrary.org/b/isbn/9780136042594-L.jpg",
+      "archived": false,
+      "createdAt": "2026-01-03 00:00:00"
+    },
+    {
+      "bookId": 4,
+      "isbn": "978-0132126953",
+      "title": "Computer Networks",
+      "author": "Andrew S. Tanenbaum, David J. Wetherall",
+      "publisher": "Pearson",
+      "edition": "5th Edition",
+      "publicationYear": 2011,
+      "category": "Computer Science",
+      "department": "CSE",
+      "description": "Covers protocol architecture, physical layers, data links, wireless transmission, routing algorithms, and internet security.",
+      "coverImageUrl": "https://covers.openlibrary.org/b/isbn/9780132126953-L.jpg",
+      "archived": false,
+      "createdAt": "2026-01-04 00:00:00"
+    },
+    {
+      "bookId": 5,
+      "isbn": "978-1119456339",
+      "title": "Operating System Concepts",
+      "author": "Abraham Silberschatz, Peter B. Galvin, Greg Gagne",
+      "publisher": "Wiley",
+      "edition": "10th Edition",
+      "publicationYear": 2018,
+      "category": "Computer Science",
+      "department": "CSE",
+      "description": "Core foundational textbook covering process scheduling, multi-threading, concurrency, memory management, and file systems.",
+      "coverImageUrl": "https://covers.openlibrary.org/b/isbn/9781119456339-L.jpg",
+      "archived": false,
+      "createdAt": "2026-01-05 00:00:00"
+    },
+    {
+      "bookId": 6,
+      "isbn": "978-0078022159",
+      "title": "Database System Concepts",
+      "author": "Abraham Silberschatz, Henry F. Korth, S. Sudarshan",
+      "publisher": "McGraw-Hill Education",
+      "edition": "7th Edition",
+      "publicationYear": 2019,
+      "category": "Computer Science",
+      "department": "IT",
+      "description": "Comprehensive guide to relational data models, SQL queries, transaction processing, indexing, and distributed databases.",
+      "coverImageUrl": "https://covers.openlibrary.org/b/isbn/9780078022159-L.jpg",
+      "archived": false,
+      "createdAt": "2026-01-06 00:00:00"
+    },
+    {
+      "bookId": 7,
+      "isbn": "978-0199464689",
+      "title": "Linear Algebra and Its Applications",
+      "author": "Gilbert Strang",
+      "publisher": "Cengage Learning",
+      "edition": "4th Edition",
+      "publicationYear": 2016,
+      "category": "Mathematics",
+      "department": "GENERAL",
+      "description": "Essential linear algebra concepts for computing, including vector spaces, matrix factorization, eigenvalues, and SVD.",
+      "coverImageUrl": "https://covers.openlibrary.org/b/isbn/9780199464689-L.jpg",
+      "archived": false,
+      "createdAt": "2026-01-07 00:00:00"
+    },
+    {
+      "bookId": 8,
+      "isbn": "978-0199339136",
+      "title": "Microelectronic Circuits",
+      "author": "Adel S. Sedra, Kenneth C. Smith",
+      "publisher": "Oxford University Press",
+      "edition": "7th Edition",
+      "publicationYear": 2014,
+      "category": "Electronics",
+      "department": "ECE",
+      "description": "Foundational curriculum textbook analyzing operational amplifiers, diode circuits, MOSFETs, and analog signal processing.",
+      "coverImageUrl": "https://covers.openlibrary.org/b/isbn/9780199339136-L.jpg",
+      "archived": false,
+      "createdAt": "2026-01-08 00:00:00"
+    },
+    {
+      "bookId": 9,
+      "isbn": "978-1260440232",
+      "title": "Java: The Complete Reference",
+      "author": "Herbert Schildt",
+      "publisher": "McGraw-Hill Education",
+      "edition": "12th Edition",
+      "publicationYear": 2021,
+      "category": "Programming",
+      "department": "IT",
+      "description": "Authoritative guide to Java programming syntax, OOP principles, collections framework, concurrency utilities, and I/O streams.",
+      "coverImageUrl": "https://covers.openlibrary.org/b/isbn/9781260440232-L.jpg",
+      "archived": false,
+      "createdAt": "2026-01-09 00:00:00"
+    },
+    {
+      "bookId": 10,
+      "isbn": "978-0134685991",
+      "title": "Effective Java",
+      "author": "Joshua Bloch",
+      "publisher": "Addison-Wesley Professional",
+      "edition": "3rd Edition",
+      "publicationYear": 2018,
+      "category": "Programming",
+      "department": "CSE",
+      "description": "Industry standard manual of best programming practices in the Java programming language.",
+      "coverImageUrl": "https://covers.openlibrary.org/b/isbn/9780134685991-L.jpg",
+      "archived": false,
+      "createdAt": "2026-01-10 00:00:00"
+    },
+    {
+      "bookId": 11,
+      "isbn": "978-1617294433",
+      "title": "Deep Learning with Python",
+      "author": "Francois Chollet",
+      "publisher": "Manning Publications",
+      "edition": "2nd Edition",
+      "publicationYear": 2021,
+      "category": "Artificial Intelligence",
+      "department": "AI&DS",
+      "description": "Comprehensive introduction to deep learning using Keras and Python.",
+      "coverImageUrl": "https://covers.openlibrary.org/b/isbn/9781617294433-L.jpg",
+      "archived": true,
+      "createdAt": "2026-10-30 19:32:21"
+    },
+    {
+      "bookId": 12,
+      "isbn": "978-1617294433",
+      "title": "Deep Learning with Python",
+      "author": "Francois Chollet",
+      "publisher": "Manning Publications",
+      "edition": "2nd Edition",
+      "publicationYear": 2021,
+      "category": "Artificial Intelligence",
+      "department": "AI&DS",
+      "description": "Comprehensive introduction to deep learning using Keras and Python.",
+      "coverImageUrl": "https://covers.openlibrary.org/b/isbn/9781617294433-L.jpg",
+      "archived": true,
+      "createdAt": "2026-10-30 19:33:11"
+    }
+  ],
+  "copies": [
+    {
+      "copyId": 1,
+      "copyCode": "PSG-BK1-C01",
+      "bookId": 1,
+      "status": "AVAILABLE",
+      "archived": false,
+      "createdAt": "2026-01-01 00:00:00"
+    },
+    {
+      "copyId": 2,
+      "copyCode": "PSG-BK1-C02",
+      "bookId": 1,
+      "status": "AVAILABLE",
+      "archived": false,
+      "createdAt": "2026-01-01 00:00:00"
+    },
+    {
+      "copyId": 3,
+      "copyCode": "PSG-BK1-C03",
+      "bookId": 1,
+      "status": "AVAILABLE",
+      "archived": false,
+      "createdAt": "2026-01-01 00:00:00"
+    },
+    {
+      "copyId": 4,
+      "copyCode": "PSG-BK1-C04",
+      "bookId": 1,
+      "status": "AVAILABLE",
+      "archived": false,
+      "createdAt": "2026-01-01 00:00:00"
+    },
+    {
+      "copyId": 5,
+      "copyCode": "PSG-BK2-C01",
+      "bookId": 2,
+      "status": "AVAILABLE",
+      "archived": false,
+      "createdAt": "2026-01-02 00:00:00"
+    },
+    {
+      "copyId": 6,
+      "copyCode": "PSG-BK2-C02",
+      "bookId": 2,
+      "status": "AVAILABLE",
+      "archived": false,
+      "createdAt": "2026-01-02 00:00:00"
+    },
+    {
+      "copyId": 7,
+      "copyCode": "PSG-BK2-C03",
+      "bookId": 2,
+      "status": "AVAILABLE",
+      "archived": false,
+      "createdAt": "2026-01-02 00:00:00"
+    },
+    {
+      "copyId": 8,
+      "copyCode": "PSG-BK3-C01",
+      "bookId": 3,
+      "status": "AVAILABLE",
+      "archived": false,
+      "createdAt": "2026-01-03 00:00:00"
+    },
+    {
+      "copyId": 9,
+      "copyCode": "PSG-BK3-C02",
+      "bookId": 3,
+      "status": "AVAILABLE",
+      "archived": false,
+      "createdAt": "2026-01-03 00:00:00"
+    },
+    {
+      "copyId": 10,
+      "copyCode": "PSG-BK3-C03",
+      "bookId": 3,
+      "status": "AVAILABLE",
+      "archived": false,
+      "createdAt": "2026-01-03 00:00:00"
+    },
+    {
+      "copyId": 11,
+      "copyCode": "PSG-BK4-C01",
+      "bookId": 4,
+      "status": "AVAILABLE",
+      "archived": false,
+      "createdAt": "2026-01-04 00:00:00"
+    },
+    {
+      "copyId": 12,
+      "copyCode": "PSG-BK4-C02",
+      "bookId": 4,
+      "status": "AVAILABLE",
+      "archived": false,
+      "createdAt": "2026-01-04 00:00:00"
+    },
+    {
+      "copyId": 13,
+      "copyCode": "PSG-BK4-C03",
+      "bookId": 4,
+      "status": "AVAILABLE",
+      "archived": false,
+      "createdAt": "2026-01-04 00:00:00"
+    },
+    {
+      "copyId": 14,
+      "copyCode": "PSG-BK5-C01",
+      "bookId": 5,
+      "status": "AVAILABLE",
+      "archived": false,
+      "createdAt": "2026-01-05 00:00:00"
+    },
+    {
+      "copyId": 15,
+      "copyCode": "PSG-BK5-C02",
+      "bookId": 5,
+      "status": "AVAILABLE",
+      "archived": false,
+      "createdAt": "2026-01-05 00:00:00"
+    },
+    {
+      "copyId": 16,
+      "copyCode": "PSG-BK5-C03",
+      "bookId": 5,
+      "status": "AVAILABLE",
+      "archived": false,
+      "createdAt": "2026-01-05 00:00:00"
+    },
+    {
+      "copyId": 17,
+      "copyCode": "PSG-BK6-C01",
+      "bookId": 6,
+      "status": "AVAILABLE",
+      "archived": false,
+      "createdAt": "2026-01-06 00:00:00"
+    },
+    {
+      "copyId": 18,
+      "copyCode": "PSG-BK6-C02",
+      "bookId": 6,
+      "status": "AVAILABLE",
+      "archived": false,
+      "createdAt": "2026-01-06 00:00:00"
+    },
+    {
+      "copyId": 19,
+      "copyCode": "PSG-BK6-C03",
+      "bookId": 6,
+      "status": "AVAILABLE",
+      "archived": false,
+      "createdAt": "2026-01-06 00:00:00"
+    },
+    {
+      "copyId": 20,
+      "copyCode": "PSG-BK7-C01",
+      "bookId": 7,
+      "status": "AVAILABLE",
+      "archived": false,
+      "createdAt": "2026-01-07 00:00:00"
+    },
+    {
+      "copyId": 21,
+      "copyCode": "PSG-BK7-C02",
+      "bookId": 7,
+      "status": "AVAILABLE",
+      "archived": false,
+      "createdAt": "2026-01-07 00:00:00"
+    },
+    {
+      "copyId": 22,
+      "copyCode": "PSG-BK8-C01",
+      "bookId": 8,
+      "status": "AVAILABLE",
+      "archived": false,
+      "createdAt": "2026-01-08 00:00:00"
+    },
+    {
+      "copyId": 23,
+      "copyCode": "PSG-BK8-C02",
+      "bookId": 8,
+      "status": "AVAILABLE",
+      "archived": false,
+      "createdAt": "2026-01-08 00:00:00"
+    },
+    {
+      "copyId": 24,
+      "copyCode": "PSG-BK9-C01",
+      "bookId": 9,
+      "status": "AVAILABLE",
+      "archived": false,
+      "createdAt": "2026-01-09 00:00:00"
+    },
+    {
+      "copyId": 25,
+      "copyCode": "PSG-BK9-C02",
+      "bookId": 9,
+      "status": "AVAILABLE",
+      "archived": false,
+      "createdAt": "2026-01-09 00:00:00"
+    },
+    {
+      "copyId": 26,
+      "copyCode": "PSG-BK9-C03",
+      "bookId": 9,
+      "status": "AVAILABLE",
+      "archived": false,
+      "createdAt": "2026-01-09 00:00:00"
+    },
+    {
+      "copyId": 27,
+      "copyCode": "PSG-BK10-C01",
+      "bookId": 10,
+      "status": "AVAILABLE",
+      "archived": false,
+      "createdAt": "2026-01-10 00:00:00"
+    },
+    {
+      "copyId": 28,
+      "copyCode": "PSG-BK10-C02",
+      "bookId": 10,
+      "status": "AVAILABLE",
+      "archived": false,
+      "createdAt": "2026-01-10 00:00:00"
+    },
+    {
+      "copyId": 29,
+      "copyCode": "PSG-BK11-C01",
+      "bookId": 11,
+      "status": "ARCHIVED",
+      "archived": true,
+      "createdAt": "2026-10-30 19:32:21"
+    },
+    {
+      "copyId": 30,
+      "copyCode": "PSG-BK11-C02",
+      "bookId": 11,
+      "status": "ARCHIVED",
+      "archived": true,
+      "createdAt": "2026-10-30 19:32:21"
+    },
+    {
+      "copyId": 31,
+      "copyCode": "PSG-BK11-C03",
+      "bookId": 11,
+      "status": "ARCHIVED",
+      "archived": true,
+      "createdAt": "2026-10-30 19:32:21"
+    },
+    {
+      "copyId": 32,
+      "copyCode": "PSG-BK11-C04",
+      "bookId": 11,
+      "status": "ARCHIVED",
+      "archived": true,
+      "createdAt": "2026-10-30 19:32:21"
+    },
+    {
+      "copyId": 33,
+      "copyCode": "PSG-BK11-C05",
+      "bookId": 11,
+      "status": "ARCHIVED",
+      "archived": true,
+      "createdAt": "2026-10-30 19:32:21"
+    },
+    {
+      "copyId": 34,
+      "copyCode": "PSG-BK12-C01",
+      "bookId": 12,
+      "status": "ARCHIVED",
+      "archived": true,
+      "createdAt": "2026-10-30 19:33:11"
+    },
+    {
+      "copyId": 35,
+      "copyCode": "PSG-BK12-C02",
+      "bookId": 12,
+      "status": "ARCHIVED",
+      "archived": true,
+      "createdAt": "2026-10-30 19:33:11"
+    },
+    {
+      "copyId": 36,
+      "copyCode": "PSG-BK12-C03",
+      "bookId": 12,
+      "status": "ARCHIVED",
+      "archived": true,
+      "createdAt": "2026-10-30 19:33:11"
+    },
+    {
+      "copyId": 37,
+      "copyCode": "PSG-BK12-C04",
+      "bookId": 12,
+      "status": "ARCHIVED",
+      "archived": true,
+      "createdAt": "2026-10-30 19:33:11"
+    },
+    {
+      "copyId": 38,
+      "copyCode": "PSG-BK12-C05",
+      "bookId": 12,
+      "status": "ARCHIVED",
+      "archived": true,
+      "createdAt": "2026-10-30 19:33:11"
+    }
+  ]
+}

@@ -1,0 +1,101 @@
+[
+  {
+    "userId": 1,
+    "name": "Admin Office",
+    "email": "admin@psgitech.ac.in",
+    "phone": "9876543210",
+    "role": "ADMIN",
+    "active": true,
+    "password": "AdminPassword@123",
+    "createdAt": "2026-01-10 09:30:00"
+  },
+  {
+    "userId": 2,
+    "name": "Dr. K. Ramanathan",
+    "email": "librarian@psgitech.ac.in",
+    "phone": "9876543211",
+    "employeeId": "LIB101",
+    "role": "LIBRARIAN",
+    "active": true,
+    "mustChangePassword": false,
+    "password": "Librarian@123",
+    "createdAt": "2026-02-14 11:20:00"
+  },
+  {
+    "userId": 3,
+    "name": "Ms. S. Meena",
+    "email": "meena.lib@psgitech.ac.in",
+    "phone": "9876543212",
+    "employeeId": "LIB102",
+    "role": "LIBRARIAN",
+    "active": true,
+    "mustChangePassword": true,
+    "password": "InitialPassword@123",
+    "createdAt": "2026-03-01 10:15:00"
+  },
+  {
+    "userId": 4,
+    "name": "Sivakathir S",
+    "email": "sivakathir.22cs@psgitech.ac.in",
+    "phone": "9876543213",
+    "registerNumber": "715522104045",
+    "department": "CSE",
+    "year": 3,
+    "role": "STUDENT",
+    "active": true,
+    "password": "Student@123",
+    "createdAt": "2026-04-12 14:00:00"
+  },
+  {
+    "userId": 5,
+    "name": "Ananya Ramesh",
+    "email": "ananya.23ai@psgitech.ac.in",
+    "phone": "9876543214",
+    "registerNumber": "715523105012",
+    "department": "AI&DS",
+    "year": 2,
+    "role": "STUDENT",
+    "active": true,
+    "password": "Student@123",
+    "createdAt": "2026-05-18 16:45:00"
+  },
+  {
+    "userId": 6,
+    "name": "Rahul Kumar",
+    "email": "rahul.21me@psgitech.ac.in",
+    "phone": "9876543215",
+    "registerNumber": "715521102030",
+    "department": "MECH",
+    "year": 4,
+    "role": "STUDENT",
+    "active": false,
+    "password": "Student@123",
+    "createdAt": "2026-06-22 09:10:00"
+  },
+  {
+    "userId": 7,
+    "name": "Saran",
+    "email": "25z304@psgitech.ac.in",
+    "phone": "8903991618",
+    "registerNumber": "715525104210",
+    "department": "CSE",
+    "year": 2,
+    "role": "STUDENT",
+    "active": true,
+    "password": "Saran@2111",
+    "createdAt": "2026-10-31 00:00:00"
+  },
+  {
+    "userId": 8,
+    "name": "Kavitha M",
+    "email": "kavitha.cse@psgitech.ac.in",
+    "phone": "9443322110",
+    "registerNumber": "715525104999",
+    "department": "CSE",
+    "year": 3,
+    "role": "STUDENT",
+    "active": true,
+    "password": "MySimplePass1",
+    "createdAt": "2026-10-30 18:58:26"
+  }
+]

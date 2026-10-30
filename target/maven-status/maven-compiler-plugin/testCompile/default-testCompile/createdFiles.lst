@@ -1,0 +1,5 @@
+com\psgitech\library\UserServiceTest.class
+com\psgitech\library\ValidationUtilTest.class
+com\psgitech\library\BookServiceTest.class
+com\psgitech\library\AuthenticationServiceTest.class
+com\psgitech\library\PasswordUtilTest.class
